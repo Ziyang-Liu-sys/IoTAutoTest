@@ -1,0 +1,16 @@
+name: iot-device::restart测试
+# Feature:重启设备
+# Parameter: 无
+
+steps:
+  - request:  
+      run_action_name: "iot-device::restart"
+      run_action_params: {}
+      tid: 11119
+  
+  - receive:
+        
+  - check: 
+      expected_run_action_name: "iot-device::restart"
+      expected_run_action_params: {}
+      expected_tid: 11119

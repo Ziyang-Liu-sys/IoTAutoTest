@@ -1,0 +1,18 @@
+name: lock::delete-palm-vein测试
+# Feature:删除掌静脉
+# Parameter: 
+# key_id,
+# member_id,
+# action_id - 事件ID，随机数
+steps:
+  - request:  
+      run_action_name: "lock::delete-palm-vein"
+      run_action_params: {"member_id": 123,"key_id": 456,"action_id": 154}
+      tid: 11115
+  
+  - receive:
+        
+  - check: 
+      expected_run_action_name: "lock::delete-palm-vein"
+      expected_run_action_params: {"member_id": 123,"key_id": 456,"action_id": 154}
+      expected_tid: 11115

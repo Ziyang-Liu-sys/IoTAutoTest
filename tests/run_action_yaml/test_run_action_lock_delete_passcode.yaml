@@ -1,0 +1,19 @@
+name: lock::delete-passcode测试
+# Feature:删除密码
+# Parameter: 
+# member_id, (16bit整型， 随机)
+# effective_time: 格式参见Note
+# action_id - 事件ID，随机数
+# passcode
+steps:
+  - request:  
+      run_action_name: "lock::delete-passcode"
+      run_action_params: {"member_id": 123,"effective_time": 31,"action_id": 154,"passcode": 123456789}
+      tid: 11116
+  
+  - receive:
+        
+  - check: 
+      expected_run_action_name: "lock::delete-passcode"
+      expected_run_action_params: {"member_id": 123,"effective_time": 31,"action_id": 154,"passcode": 123456789}
+      expected_tid: 11116

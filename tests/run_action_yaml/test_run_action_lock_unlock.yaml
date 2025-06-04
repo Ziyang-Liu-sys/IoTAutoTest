@@ -1,0 +1,21 @@
+name: lock::unlock测试
+# Feature:远程解锁
+# Parameter:
+# type - 解锁方式
+#     1-App(主用户)，2-App(分享用户)，3-Rule Engine，
+#     4-Alexa，5-Google
+# username - 操作者名称（或Trigger，可空，需要支持UTF-8）
+# action_id - 事件ID，随机数
+steps:
+  - request:  
+        run_action_name: "lock::unlock"
+        run_action_params: {"unlock_type":1,"username":"zhangsan","action_id":123}
+        tid: 11112
+
+  - receive:
+        
+  - check: 
+      expected_run_action_name: "lock::unlock"
+      expected_run_action_params: {"unlock_type":1,"username":"zhangsan","action_id":123}
+      expected_tid: 11112
+

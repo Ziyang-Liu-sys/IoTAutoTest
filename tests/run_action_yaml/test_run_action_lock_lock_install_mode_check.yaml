@@ -1,0 +1,15 @@
+name: lock::lock-install-mode-check测试
+# Feature:安装第一步检测门锁安装方式
+# Parameter: 无
+steps:
+  - request:  
+        run_action_name: "lock::lock-install-mode-check"
+        run_action_params: {}
+        tid: 11113
+
+  - receive:
+        
+  - check: 
+      expected_run_action_name: "lock::lock-install-mode-check"
+      expected_run_action_params: {}
+      expected_tid: 11113

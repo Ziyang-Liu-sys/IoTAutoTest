@@ -1,0 +1,10 @@
+name: ring-doorbell::ring-doorbell测试
+steps:
+  - request: 
+      report_event_name: "ring_doorbell_event"
+      report_event_params: {"receive_tid" : 12343, "wakeup_time": 12, "mqtt_interval": 60, "dtim": 4, "rssi": -90}  
+  - receive:
+      get_event: "ring-doorbell::ring-doorbell"
+  - check: 
+      expected_event_name_result: "ring-doorbell::ring-doorbell"
+      expected_event_params_result: {"receive_tid" : 12343,"wakeup_time": 12,"mqtt_interval": 60,"dtim": 4,"rssi": -90} 

@@ -1,0 +1,17 @@
+name: lock::passcode-event测试
+# Feature:密码管理事件
+# Parameter:
+# action_id - 事件ID
+# key_id,
+# member_id,
+# action, 1-添加密码，2-删除密码
+# result, 【错误码】
+steps:
+  - request: 
+      report_event_name: "lock_passcode_event"
+      report_event_params: {"action_id":123,"key_id":456,"member_id":789,"action":1,"result":-1}  
+  - receive:
+      get_event: "lock::passcode-event"
+  - check: 
+      expected_event_name_result: "lock::passcode-event"
+      expected_event_params_result: {"action_id":123,"key_id":456,"member_id":789,"action":1,"result":-1}

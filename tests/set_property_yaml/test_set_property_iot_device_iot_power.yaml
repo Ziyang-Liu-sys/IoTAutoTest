@@ -1,0 +1,34 @@
+name: iot-device::iot-power测试
+steps:
+   # 第一次iot使能测试
+  - request:  # 要设置属性的名称和值 以及一个tid
+        set_property_name: "iot-device::iot-power"
+        set_property_value: "true"
+        tid: 12345
+
+  - receive: # 从模拟器得到实际设置成的名称和值 以及tid
+        set_property_name: "iot-device::iot-power"
+        
+
+  
+  - check:  # 断言响应
+      expected_set_property_name: "iot-device::iot-power"
+      expected_set_property_value: "true"
+      expected_tid: 12345
+
+  # 第二次iot使能测试
+  - request:  # 要设置属性的名称和值 以及一个tid
+        set_property_name: "iot-device::iot-power"
+        set_property_value: "true"
+        tid: 20000
+
+  - receive: # 从模拟器得到实际设置成的名称和值 以及tid
+        set_property_name: "iot-device::iot-power"
+        
+
+  
+  - check:  # 断言响应
+      expected_set_property_name: "iot-device::iot-power"
+      expected_set_property_value: "true"
+      expected_tid: 20000
+     

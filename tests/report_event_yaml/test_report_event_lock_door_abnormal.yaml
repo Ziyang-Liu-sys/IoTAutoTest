@@ -1,0 +1,15 @@
+name: lock::door-abnormal测试
+# Feature:门状态异常报警
+# Parameter:type【int】，可以定义事件类型
+# 1 - 陀螺仪需要新校准提示
+# 3 - 超时未关闭
+# value【int】如果type=3，value为超时时长
+steps:
+  - request: 
+      report_event_name: "lock_door_abnormal"
+      report_event_params: {"event_type":1,"value":50}  
+  - receive:
+      get_event: "lock::door-abnormal"
+  - check: 
+      expected_event_name_result: "lock::door-abnormal"
+      expected_event_params_result: {"event_type":1,"value":50} 

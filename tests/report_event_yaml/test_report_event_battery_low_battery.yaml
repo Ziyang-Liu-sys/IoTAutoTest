@@ -1,0 +1,12 @@
+name: battery::low-battery测试
+# Feature:低电报警
+# Parameter:battery-level: 1-100
+steps:
+  - request: 
+      report_event_name: "battery_low_battery"
+      report_event_params: {"battery-level":30}  
+  - receive:
+      get_event: "battery::low-battery"
+  - check: 
+      expected_event_name_result: "battery::low-battery"
+      expected_event_params_result: {"battery-level":30} 

@@ -1,0 +1,16 @@
+name: iot-device::submit-log测试
+# Feature:提交固件日志
+# Parameter: url
+
+steps:
+  - request:  
+      run_action_name: "iot-device::submit-log"
+      run_action_params: {}
+      tid: 11140
+  
+  - receive:
+        
+  - check: 
+      expected_run_action_name: "iot-device::submit-log"
+      expected_run_action_params: {}
+      expected_tid: 11140

@@ -1,0 +1,20 @@
+name: lock::lock-event测试
+# Feature:上锁事件
+# Parameter:
+# type - 上锁方式
+#     1-App(主用户)，2-App(分享用户)，3-Rule Engine，
+#     4-Alexa，5-Google
+#     10-手动关锁，11-自动关锁
+#     12-延时关锁，13-定时关锁
+# member_id - 成员ID
+#     0-未知成员
+# username - 操作者名称或Trigger
+steps:
+  - request: 
+      report_event_name: "lock_lock_event"
+      report_event_params: {"locked_type":1,"member_id":0,"username":"zhangsan"}  
+  - receive:
+      get_event: "lock::lock-event"
+  - check: 
+      expected_event_name_result: "lock::lock-event"
+      expected_event_params_result: {"locked_type":1,"member_id":0,"username":"zhangsan"}  

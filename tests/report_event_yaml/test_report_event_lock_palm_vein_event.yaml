@@ -1,0 +1,17 @@
+name: lock::palm-vein-event测试
+# Feature:掌静脉管理事件
+# Parameter:
+# action_id - 事件ID
+# key_id,
+# member_id,
+# action, 1-添加，2-删除
+# result, 【错误码】
+steps:
+  - request: 
+      report_event_name: "lock_palm_vein_event"
+      report_event_params: {"action_id":1234,"key_id":4560,"member_id":789,"action":1,"result":-1}
+  - receive:
+      get_event: "lock::palm-vein-event"
+  - check: 
+      expected_event_name_result: "lock::palm-vein-event"
+      expected_event_params_result: {"action_id":1234,"key_id":4560,"member_id":789,"action":1,"result":-1}

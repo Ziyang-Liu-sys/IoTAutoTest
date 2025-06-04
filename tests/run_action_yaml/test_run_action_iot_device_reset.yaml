@@ -1,0 +1,16 @@
+name: iot-device::reset测试
+# Feature:设备重置
+# Parameter: 无
+
+steps:
+  - request:  
+      run_action_name: "iot-device::reset"
+      run_action_params: {}
+      tid: 11130
+  
+  - receive:
+        
+  - check: 
+      expected_run_action_name: "iot-device::reset"
+      expected_run_action_params: {}
+      expected_tid: 11130

@@ -1,0 +1,35 @@
+name: device-info::lon测试
+steps:
+   # 第一次设备日志测试
+  - request:  # 要设置属性的名称和值 以及一个tid
+        set_property_name: "device-info::lon"
+        set_property_value: "test_device_info_lon"
+        tid: 11111
+
+  - receive: # 从模拟器得到实际设置成的名称和值 以及tid
+        set_property_name: "device-info::lon"
+        
+
+  
+  - check:  # 断言响应
+      expected_set_property_name: "device-info::lon"
+      expected_set_property_value: "test_device_info_lon"
+      expected_tid: 11111
+
+    # 第二次设备日志测试
+  - request:  # 要设置属性的名称和值 以及一个tid
+        set_property_name: "device-info::lon"
+        set_property_value: "test_device_info_lon"
+        tid: 22222
+
+  - receive: # 从模拟器得到实际设置成的名称和值 以及tid
+        set_property_name: "device-info::lon"
+        
+
+  
+  - check:  # 断言响应
+      expected_set_property_name: "device-info::lon"
+      expected_set_property_value: "test_device_info_lon"
+      expected_tid: 22222
+
+ 

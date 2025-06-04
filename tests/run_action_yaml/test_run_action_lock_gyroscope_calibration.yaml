@@ -1,0 +1,16 @@
+name: lock::gyroscope-calibration测试
+# Feature:安装第二步陀螺仪校准
+# Parameter: Step【Int】
+# 1 - Step 1，2-Step 2
+steps:
+  - request:  
+      run_action_name: "lock::gyroscope-calibration"
+      run_action_params: {"srep": 1}
+      tid: 11114
+
+  - receive:
+        
+  - check: 
+      expected_run_action_name: "lock::gyroscope-calibration"
+      expected_run_action_params: {"srep": 1}
+      expected_tid: 11114

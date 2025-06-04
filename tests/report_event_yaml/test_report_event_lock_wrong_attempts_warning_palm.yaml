@@ -1,0 +1,12 @@
+name: lock::wrong-attempts-warning-palm测试
+# Feature:多次试错告警-Palm
+# Parameter: 无
+steps:
+  - request: 
+      report_event_name: "lock_wrong_attempts_warning_palm"
+      report_event_params: { }  
+  - receive:
+      get_event: "lock::wrong-attempts-warning-palm"
+  - check: 
+      expected_event_name_result: "lock::wrong-attempts-warning-palm"
+      expected_event_params_result: { } 

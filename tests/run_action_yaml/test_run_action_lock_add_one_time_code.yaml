@@ -1,0 +1,17 @@
+name: lock::add-one-time-code测试
+# Feature:添加一次性密码
+# Parameter: 
+# code - 一次性密码
+# expiration_time - 过期时间 (10位时间戳)
+steps:
+  - request:  
+      run_action_name: "lock::add-one-time-code"
+      run_action_params: {"code": 123,"expiration_time": 1111111111}
+      tid: 11116
+  
+  - receive:
+        
+  - check: 
+      expected_run_action_name: "lock::add-one-time-code"
+      expected_run_action_params: {"code": 123,"expiration_time": 1111111111}
+      expected_tid: 11116

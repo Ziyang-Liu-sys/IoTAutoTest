@@ -1,0 +1,47 @@
+name: battery::battery-level测试
+steps:
+   # 第一次电量测试
+  - request:  # 发送更新电量的请求
+      update_state_name: "battery_level"
+      update_state_value: 52
+    
+  - receive: # 从云端得到实际电量
+      get_property: "battery::battery-level"
+  
+  - check:  # 断言响应
+      expected_result: 52
+
+  # 第二次电量测试
+  - request:  # 发送更新电量的请求
+      update_state_name: "battery_level"
+      update_state_value: 54
+    
+  - receive: # 从云端得到实际电量
+      get_property: "battery::battery-level"
+  
+  - check:  # 断言响应
+      expected_result: 54
+  
+  # 第三次电量测试
+  - request:  # 发送更新电量的请求
+      update_state_name: "battery_level"
+      update_state_value: 58
+    
+  - receive: # 从云端得到实际电量
+      get_property: "battery::battery-level"
+  
+  - check:  # 断言响应
+      expected_result: 58
+
+# 第四次电量测试
+  - request:  # 发送更新电量的请求
+      update_state_name: "battery_level"
+      update_state_value: 58
+    
+  - receive: # 从云端得到实际电量
+      get_property: "battery::battery-level"
+  
+  - check:  # 断言响应
+      expected_result: 58
+    
+    

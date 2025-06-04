@@ -1,0 +1,12 @@
+name: lock::wrong-attempts-warning-passcode测试
+# Feature:多次试错告警-Passcode
+# Parameter: 无
+steps:
+  - request: 
+      report_event_name: "lock_wrong_attempts_warning_passcode"
+      report_event_params: { }  
+  - receive:
+      get_event: "lock::wrong-attempts-warning-passcode"
+  - check: 
+      expected_event_name_result: "lock::wrong-attempts-warning-passcode"
+      expected_event_params_result: { } 

@@ -1,0 +1,15 @@
+name: lock::door-event测试
+# Feature:门的状态事件
+# Parameter:type【int】，可以定义事件类型
+# 1 - 开门事件
+# 2 - 关门事件
+steps:
+  - request: 
+      report_event_name: "lock_door_event"
+      report_event_params: {"type":1}  # 门的状态事件  1 - 开门事件  2 - 关门事件
+  - receive:
+      get_event: "lock::door-event"
+  - check: 
+      expected_event_name_result: "lock::door-event"
+      expected_event_params_result: {"type":1} 
+  

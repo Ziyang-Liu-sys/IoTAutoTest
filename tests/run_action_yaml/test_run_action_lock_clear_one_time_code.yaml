@@ -1,0 +1,16 @@
+name: lock::clear-one-time-code测试
+# Feature:清除一次性密码
+# Parameter: 无
+
+steps:
+  - request:  
+      run_action_name: "lock::clear-one-time-code"
+      run_action_params: {}
+      tid: 11118
+  
+  - receive:
+        
+  - check: 
+      expected_run_action_name: "lock::clear-one-time-code"
+      expected_run_action_params: {}
+      expected_tid: 11118

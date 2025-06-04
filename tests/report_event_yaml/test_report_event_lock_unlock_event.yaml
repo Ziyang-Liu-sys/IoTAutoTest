@@ -1,0 +1,23 @@
+name: lock::lock-event测试
+# Feature:解锁事件
+# Parameter:
+# type - 解锁方式
+#     1-App(主用户)，2-App(分享用户)，3-Rule Engine，
+#     4-Alexa，5-Google
+#     10-手动解锁，11-密码解锁
+#     12-掌静脉解锁
+#     13-One-Time Code
+# key_id - 密码ID
+#     0-未使用密码
+# member_id - 成员ID
+#     0-未知成员
+# username - 操作者名称或Trigger
+steps:
+  - request: 
+      report_event_name: "lock_unlock_event"
+      report_event_params: {"unlocked_type":1,"key_id":12345,"member_id":456,"username":"zhangsan"}  
+  - receive:
+      get_event: "lock::unlock-event"
+  - check: 
+      expected_event_name_result: "lock::unlock-event"
+      expected_event_params_result: {"unlocked_type":1,"key_id":12345,"member_id":456,"username":"zhangsan"}  

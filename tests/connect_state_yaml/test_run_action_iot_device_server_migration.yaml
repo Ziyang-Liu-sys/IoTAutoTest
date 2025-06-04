@@ -1,0 +1,13 @@
+name: iot-device::server-migration测试
+steps:
+  - request:  
+      run_action_name: "iot-device::server-migration"
+      run_action_params: {}
+      tid: 12345
+  
+  - receive:
+        
+  - check: 
+      expected_token1: "WYZE_iot3_0_run_action_server_migration"
+      expected_token2: "begin connection manager domain_name process"
+      expected_token3: "iot: logged in to the iot server"
